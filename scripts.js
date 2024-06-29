@@ -1,4 +1,15 @@
+let localStorageMyLibrary = JSON.parse(localStorage.getItem("myLibrary")) || "NONE";
 const myLibrary = [];
+if (localStorageMyLibrary !== "NONE") {
+    localStorageMyLibrary.forEach(book => {
+        myLibrary.push(new Book(book.title, book.author, book.pages, book.read));
+    });
+};
+
+function saveMyLibraryToLocalStorage() {
+    localStorageMyLibrary = myLibrary;
+    localStorage.setItem("myLibrary", JSON.stringify(localStorageMyLibrary));
+}
 
 function Book(title, author, pages, read) {
     // type checking
@@ -52,6 +63,7 @@ function renderBooks() {
         newBookCard.appendChild(userBookCardData);
 
         const userBookCardTogglereadBtn = document.createElement("button");
+
         userBookCardTogglereadBtn.classList.add("user-book-card-toggle-read-btn");
         if (book.read) {
             userBookCardTogglereadBtn.textContent = "Read";
@@ -61,6 +73,7 @@ function renderBooks() {
         };
         userBookCardTogglereadBtn.addEventListener("click", function() {
             book.toggleRead();
+            saveMyLibraryToLocalStorage();
             userBookCardTogglereadBtn.classList.toggle("unread");
             if (book.read) {
                 userBookCardTogglereadBtn.textContent = "Read";
@@ -165,6 +178,7 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
         if (!formInputBlock3Input.value.includes(".") && Boolean(Number(formInputBlock3Input.value)) && Number(formInputBlock3Input.value) > 0) {
             // console.log(Number(formInputBlock3Input.value), Boolean(NaN));
             myLibrary.push(new Book(formInputBlock1Input.value, formInputBlock2Input.value, formInputBlock3Input.value, true));
+            saveMyLibraryToLocalStorage();
             renderBooks();
             formBackdrop.remove();
         } else {
