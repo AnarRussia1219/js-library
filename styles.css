@@ -107,6 +107,17 @@ input {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
+    position: relative;
+}
+
+.user-books-grid-no-books-text {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 100;
+    letter-spacing: .45px;
 }
 
 .user-book-card {

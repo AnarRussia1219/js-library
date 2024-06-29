@@ -1,4 +1,4 @@
-const myLibrary = [new Book("The Blue Asteroid", "Qwinx Maoqwertou", "451", false)];
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
     // type checking
@@ -17,6 +17,15 @@ Book.prototype.toggleRead = function() {
 
 function renderBooks() {
     document.querySelector(".user-books-grid").textContent = "";
+    if (myLibrary.length === 0) {
+        // a text if there are no books
+        const userBooksGridNoBooksText = document.createElement("div");
+        userBooksGridNoBooksText.classList.add("user-books-grid-no-books-text");
+        userBooksGridNoBooksText.textContent = "Your library is empty";
+        document.querySelector(".user-books-grid").appendChild(userBooksGridNoBooksText);
+
+        return;
+    };
 
     myLibrary.forEach(book => {
         const newBookCard = document.createElement("div");
