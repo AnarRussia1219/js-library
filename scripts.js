@@ -135,11 +135,26 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
     formInputBlock3.appendChild(formInputBlock3Input);
     form.appendChild(formInputBlock3);
 
+    const formBtnsBlock = document.createElement("div");
+    formBtnsBlock.classList.add("add-book-form-btns-block");
+    const formCancelBtn = document.createElement("button");
+    formCancelBtn.classList.add("add-book-form-form-cancel-btn");
+    formCancelBtn.textContent = "Cancel";
+    formBtnsBlock.appendChild(formCancelBtn);
+    const formAddBtn = document.createElement("button");
+    formAddBtn.classList.add("add-book-form-add-btn");
+    formAddBtn.textContent = "Add";
+    formBtnsBlock.appendChild(formAddBtn);
+    form.appendChild(formBtnsBlock);
+
     document.body.appendChild(formBackdrop);
     // to let the user close the modal when clicked outside of the form
     formBackdrop.addEventListener("click", function(event) {
         if (event.target === formBackdrop) {
             formBackdrop.remove();
-        }
+        };
+    });
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
     })
 });
