@@ -163,7 +163,7 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
     form.addEventListener("submit", function(event) {
         event.preventDefault();
         if (!formInputBlock3Input.value.includes(".") && Boolean(Number(formInputBlock3Input.value)) && Number(formInputBlock3Input.value) > 0) {
-            console.log(Number(formInputBlock3Input.value), Boolean(NaN));
+            // console.log(Number(formInputBlock3Input.value), Boolean(NaN));
             myLibrary.push(new Book(formInputBlock1Input.value, formInputBlock2Input.value, formInputBlock3Input.value, true));
             renderBooks();
             formBackdrop.remove();
