@@ -284,6 +284,26 @@ input {
 .settings-modal-header-text {
     font-size: 24px;
     font-weight: 700;
+    display: flex;
+}
+
+.settings-modal-header-text-close-btn {
+    margin-left: auto;
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: 100;
+    transition: var(--transition-duration-primary);
+}
+
+.settings-modal-header-text-close-btn:hover {
+    background-color: var(--accent-primary);
 }
 
 .settings-modal-settings-section {

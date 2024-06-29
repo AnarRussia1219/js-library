@@ -203,7 +203,14 @@ document.getElementById("page-footer-settings").addEventListener("click", functi
     const settingsModalHeaderText = document.createElement("h3");
     settingsModalHeaderText.classList.add("settings-modal-header-text");
     settingsModalHeaderText.textContent = "Settings";
+    const settingsModalHeaderTextCloseBtn = document.createElement("button");
+    settingsModalHeaderTextCloseBtn.classList.add("settings-modal-header-text-close-btn");
+    settingsModalHeaderTextCloseBtn.textContent = "x";
+    settingsModalHeaderText.appendChild(settingsModalHeaderTextCloseBtn);
     settingsModal.appendChild(settingsModalHeaderText);
+    settingsModalHeaderTextCloseBtn.addEventListener("click", function() {
+        settingsBackdrop.remove();
+    });
 
     /////// Appearance Section ///////
     const settingsModalAppearanceSection = document.createElement("div");
