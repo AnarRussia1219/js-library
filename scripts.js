@@ -153,6 +153,7 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
     form.appendChild(formBtnsBlock);
 
     document.body.appendChild(formBackdrop);
+    formInputBlock1Input.focus();
     // to let the user close the modal when clicked outside of the form
     formBackdrop.addEventListener("click", function(event) {
         if (event.target === formBackdrop) {
@@ -161,5 +162,18 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
     });
     form.addEventListener("submit", function(event) {
         event.preventDefault();
-    })
+        if (!formInputBlock3Input.value.includes(".") && Boolean(Number(formInputBlock3Input.value)) && Number(formInputBlock3Input.value) > 0) {
+            console.log(Number(formInputBlock3Input.value), Boolean(NaN));
+            myLibrary.push(new Book(formInputBlock1Input.value, formInputBlock2Input.value, formInputBlock3Input.value, true));
+            renderBooks();
+            formBackdrop.remove();
+        } else {
+            alert("Only type integer page numbers, page numbers also cant be 0 nor lower!");
+            formInputBlock3Input.value = "";
+        };
+    });
+
+    formCancelBtn.addEventListener("click", function() {
+        formBackdrop.remove();
+    });
 });
