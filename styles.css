@@ -153,8 +153,15 @@ input {
     margin-bottom: 30px;
 }
 
-.user-book-card-toggle-read-btn {
+.user-book-card-btns {
     width: 100%;
+    height: 40px;
+    display: flex;
+    gap: 1rem;
+}
+
+.user-book-card-toggle-read-btn {
+    flex: 1;
     height: 40px;
     background-color: #00bb09;
     color: white;
@@ -167,6 +174,17 @@ input {
 }
 
 .user-book-card-toggle-read-btn:hover {
+    opacity: 0.85;
+}
+
+.user-book-card-remove-btn {
+    background-color: var(--accent-primary);
+    color: var(--accent-primary-contrasting-color);
+    width: 75px;
+    border-radius: var(--button-border-radius-primary);
+}
+
+.user-book-card-remove-btn:hover {
     opacity: 0.85;
 }
 

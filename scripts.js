@@ -46,7 +46,7 @@ function renderBooks() {
         return;
     };
 
-    myLibrary.forEach(book => {
+    myLibrary.forEach((book, index) => {
         const newBookCard = document.createElement("div");
         newBookCard.classList.add("user-book-card");
         // newBookCard child elements
@@ -70,6 +70,10 @@ function renderBooks() {
 
         newBookCard.appendChild(userBookCardData);
 
+        // btns
+        const userBookCardBtns = document.createElement("div");
+        userBookCardBtns.classList.add("user-book-card-btns");
+
         const userBookCardTogglereadBtn = document.createElement("button");
 
         userBookCardTogglereadBtn.classList.add("user-book-card-toggle-read-btn");
@@ -89,8 +93,18 @@ function renderBooks() {
                 userBookCardTogglereadBtn.textContent = "Unread";
             }
         });
-        newBookCard.appendChild(userBookCardTogglereadBtn);
+        userBookCardBtns.appendChild(userBookCardTogglereadBtn);
 
+        const userBookCardRemoveBtn = document.createElement("button");
+        userBookCardRemoveBtn.classList.add("user-book-card-remove-btn");
+        userBookCardRemoveBtn.textContent = "Remove";
+        userBookCardRemoveBtn.addEventListener("click", function() {
+            myLibrary.splice(index, 1);
+            saveMyLibraryToLocalStorage();
+            renderBooks();
+        });
+        userBookCardBtns.appendChild(userBookCardRemoveBtn);
+        newBookCard.appendChild(userBookCardBtns);
         /* legacy
         newBookCard.innerHTML = `
             <div class="user-book-card-data">
