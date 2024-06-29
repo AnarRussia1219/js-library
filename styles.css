@@ -53,6 +53,7 @@ input {
 
 .page-header {
     background-color: #e4e4e4;
+    border-bottom: 1.5px solid black;
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
@@ -166,6 +167,36 @@ input {
 
 .user-book-card-toggle-read-btn:hover {
     opacity: 0.85;
+}
+
+.page-footer {
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    height: 45px;
+}
+
+#page-footer-settings {
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#page-footer-settings:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#page-footer-settings:hover svg {
+    fill: var(--accent-primary);
+}
+
+#page-footer-settings > svg {
+    fill: #ffffff;
+    height: 24px;
+    width: 24px;
+    transform: scale(1.2);
 }
 
 .backdrop-full-page {
