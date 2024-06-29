@@ -109,6 +109,7 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
     formInputBlock1.appendChild(formInputBlock1Label);
     const formInputBlock1Input = document.createElement("input");
     formInputBlock1Input.classList.add("add-book-form-input-block-input");
+    formInputBlock1Input.required = true;
     formInputBlock1.appendChild(formInputBlock1Input);
     form.appendChild(formInputBlock1);
 
@@ -121,6 +122,7 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
     formInputBlock2.appendChild(formInputBlock2Label);
     const formInputBlock2Input = document.createElement("input");
     formInputBlock2Input.classList.add("add-book-form-input-block-input");
+    formInputBlock2Input.required = true;
     formInputBlock2.appendChild(formInputBlock2Input);
     form.appendChild(formInputBlock2);
 
@@ -132,6 +134,7 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
     formInputBlock3.appendChild(formInputBlock3Label);
     const formInputBlock3Input = document.createElement("input");
     formInputBlock3Input.classList.add("add-book-form-input-block-input");
+    formInputBlock3Input.required = true;
     formInputBlock3.appendChild(formInputBlock3Input);
     form.appendChild(formInputBlock3);
 
@@ -140,10 +143,12 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
     const formCancelBtn = document.createElement("button");
     formCancelBtn.classList.add("add-book-form-form-cancel-btn");
     formCancelBtn.textContent = "Cancel";
+    formCancelBtn.setAttribute("type", "button");
     formBtnsBlock.appendChild(formCancelBtn);
     const formAddBtn = document.createElement("button");
     formAddBtn.classList.add("add-book-form-add-btn");
     formAddBtn.textContent = "Add";
+    formAddBtn.setAttribute("type", "submit");
     formBtnsBlock.appendChild(formAddBtn);
     form.appendChild(formBtnsBlock);
 
