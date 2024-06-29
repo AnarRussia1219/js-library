@@ -84,5 +84,53 @@ function renderBooks() {
 renderBooks();
 
 document.getElementById("page-header-add-book-btn").addEventListener("click", function() {
+    // create the form
+    const formBackdrop = document.createElement("div");
+    formBackdrop.classList.add("backdrop-full-page");
+
+    const form = document.createElement("form");
+    form.classList.add("add-book-form");
+    formBackdrop.appendChild(form);
+
+    const formInputBlock1 = document.createElement("div");
+    formInputBlock1.classList.add("add-book-form-input-block");
+    const formInputBlock1Label = document.createElement("label");
+    formInputBlock1Label.classList.add("add-book-form-input-block-label");
+    formInputBlock1Label.textContent = "TITLE";
+    formInputBlock1.appendChild(formInputBlock1Label);
+    const formInputBlock1Input = document.createElement("input");
+    formInputBlock1Input.classList.add("add-book-form-input-block-input");
+    formInputBlock1.appendChild(formInputBlock1Input);
+    form.appendChild(formInputBlock1);
+
     
+    const formInputBlock2 = document.createElement("div");
+    formInputBlock2.classList.add("add-book-form-input-block");
+    const formInputBlock2Label = document.createElement("label");
+    formInputBlock2Label.classList.add("add-book-form-input-block-label");
+    formInputBlock2Label.textContent = "AUTHOR";
+    formInputBlock2.appendChild(formInputBlock2Label);
+    const formInputBlock2Input = document.createElement("input");
+    formInputBlock2Input.classList.add("add-book-form-input-block-input");
+    formInputBlock2.appendChild(formInputBlock2Input);
+    form.appendChild(formInputBlock2);
+
+    const formInputBlock3 = document.createElement("div");
+    formInputBlock3.classList.add("add-book-form-input-block");
+    const formInputBlock3Label = document.createElement("label");
+    formInputBlock3Label.classList.add("add-book-form-input-block-label");
+    formInputBlock3Label.textContent = "PAGES";
+    formInputBlock3.appendChild(formInputBlock3Label);
+    const formInputBlock3Input = document.createElement("input");
+    formInputBlock3Input.classList.add("add-book-form-input-block-input");
+    formInputBlock3.appendChild(formInputBlock3Input);
+    form.appendChild(formInputBlock3);
+
+    document.body.appendChild(formBackdrop);
+    // to let the user close the modal when clicked outside of the form
+    formBackdrop.addEventListener("click", function(event) {
+        if (event.target === formBackdrop) {
+            formBackdrop.remove();
+        }
+    })
 });
