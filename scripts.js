@@ -215,11 +215,12 @@ document.getElementById("page-footer-settings").addEventListener("click", functi
     settingsModalAppearanceSectionBlockAccentPrimary.classList.add("settings-modal-settings-block");
 
     const settingsModalAppearanceSectionBlockAccentPrimaryLabel = document.createElement("label");
-    settingsModalAppearanceSectionBlockAccentPrimaryLabel.classList.add("settings-modal-settings-block-label")
+    settingsModalAppearanceSectionBlockAccentPrimaryLabel.classList.add("settings-modal-settings-block-label");
     settingsModalAppearanceSectionBlockAccentPrimaryLabel.textContent = "Accent Primary:";
     settingsModalAppearanceSectionBlockAccentPrimary.appendChild(settingsModalAppearanceSectionBlockAccentPrimaryLabel);
 
     const settingsModalAppearanceSectionBlockAccentPrimaryColorPicker = document.createElement("input");
+    settingsModalAppearanceSectionBlockAccentPrimaryColorPicker.classList.add("settings-modal-settings-block-color-picker");
     settingsModalAppearanceSectionBlockAccentPrimaryColorPicker.setAttribute("type", "color");
     // set the default value of the color picker to be the accent primary color defined in the css
     // console.log(window.getComputedStyle(document.body).getPropertyValue("--accent-primary"));
