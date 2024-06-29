@@ -21,6 +21,47 @@ function renderBooks() {
     myLibrary.forEach(book => {
         const newBookCard = document.createElement("div");
         newBookCard.classList.add("user-book-card");
+        // newBookCard child elements
+        const userBookCardData = document.createElement("div");
+        userBookCardData.classList.add("user-book-card-data");
+
+        const userBookCardBookTitle = document.createElement("p");
+        userBookCardBookTitle.classList.add("user-book-card-book-title");
+        userBookCardBookTitle.textContent = book.title;
+        userBookCardData.appendChild(userBookCardBookTitle);
+
+        const userBookCardBookAuthor = document.createElement("p");
+        userBookCardBookAuthor.classList.add("user-book-card-book-author");
+        userBookCardBookAuthor.textContent = book.author;
+        userBookCardData.appendChild(userBookCardBookAuthor);
+
+        const userBookCardBookPages = document.createElement("p");
+        userBookCardBookPages.classList.add("user-book-card-book-pages");
+        userBookCardBookPages.textContent = book.pages;
+        userBookCardData.appendChild(userBookCardBookPages);
+
+        newBookCard.appendChild(userBookCardData);
+
+        const userBookCardTogglereadBtn = document.createElement("button");
+        userBookCardTogglereadBtn.classList.add("user-book-card-toggle-read-btn");
+        if (book.read) {
+            userBookCardTogglereadBtn.textContent = "Read";
+        } else {
+            userBookCardTogglereadBtn.classList.add("unread");
+            userBookCardTogglereadBtn.textContent = "Unread";
+        };
+        userBookCardTogglereadBtn.addEventListener("click", function() {
+            book.toggleRead();
+            userBookCardTogglereadBtn.classList.toggle("unread");
+            if (book.read) {
+                userBookCardTogglereadBtn.textContent = "Read";
+            } else {
+                userBookCardTogglereadBtn.textContent = "Unread";
+            }
+        });
+        newBookCard.appendChild(userBookCardTogglereadBtn);
+
+        /* legacy
         newBookCard.innerHTML = `
             <div class="user-book-card-data">
                 <p class="user-book-card-book-title">${book.title}</p>
@@ -35,6 +76,7 @@ function renderBooks() {
                 };
             }()}
         `;
+        */
         document.querySelector(".user-books-grid").appendChild(newBookCard);
     });
 };
