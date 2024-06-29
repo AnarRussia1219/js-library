@@ -5,10 +5,18 @@ if (localStorageMyLibrary !== "NONE") {
         myLibrary.push(new Book(book.title, book.author, book.pages, book.read));
     });
 };
-
+const userPrefs = JSON.parse(localStorage.getItem("userPrefs")) || {
+    // defaults
+    "accent-primary": window.getComputedStyle(document.body).getPropertyValue("--accent-primary"),
+};
+console.log(userPrefs["accent-primary"])
 function saveMyLibraryToLocalStorage() {
     localStorageMyLibrary = myLibrary;
     localStorage.setItem("myLibrary", JSON.stringify(localStorageMyLibrary));
+}
+
+function saveUserPrefsToLocalStorage() {
+    localStorage.setItem("userPrefs", JSON.stringify(userPrefs));
 }
 
 function Book(title, author, pages, read) {
@@ -104,6 +112,8 @@ function renderBooks() {
 };
 
 renderBooks();
+// load user prefs
+document.querySelector(":root").style.setProperty("--accent-primary", userPrefs["accent-primary"]);
 
 document.getElementById("page-header-add-book-btn").addEventListener("click", function() {
     // create the form
@@ -235,6 +245,8 @@ document.getElementById("page-footer-settings").addEventListener("click", functi
     settingsModalAppearanceSectionBlockAccentPrimary.appendChild(settingsModalAppearanceSectionBlockAccentPrimaryColorPicker);
     settingsModalAppearanceSectionBlockAccentPrimaryColorPicker.addEventListener("input", function() {
         document.querySelector(":root").style.setProperty("--accent-primary", String(settingsModalAppearanceSectionBlockAccentPrimaryColorPicker.value));
+        userPrefs["accent-primary"] = String(settingsModalAppearanceSectionBlockAccentPrimaryColorPicker.value);
+        saveUserPrefsToLocalStorage();
     });
 
     settingsModalAppearanceSection.appendChild(settingsModalAppearanceSectionBlockAccentPrimary);
