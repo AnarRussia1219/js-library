@@ -1,4 +1,4 @@
-const myLibrary = [];
+const myLibrary = JSON.parse(localStorage.getItem("myLibrary")) || [];
 
 function Book(title, author, pages, read) {
     // type checking
@@ -165,6 +165,7 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
         if (!formInputBlock3Input.value.includes(".") && Boolean(Number(formInputBlock3Input.value)) && Number(formInputBlock3Input.value) > 0) {
             console.log(Number(formInputBlock3Input.value), Boolean(NaN));
             myLibrary.push(new Book(formInputBlock1Input.value, formInputBlock2Input.value, formInputBlock3Input.value, true));
+            localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
             renderBooks();
             formBackdrop.remove();
         } else {
