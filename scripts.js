@@ -1,4 +1,4 @@
-const myLibrary = [];
+const myLibrary = [new Book("The Blue Asteroid", "Qwinx Maoqwertou", "451", false)];
 
 function Book(title, author, pages, read) {
     // type checking
