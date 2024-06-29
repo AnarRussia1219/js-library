@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    color: inherit;
+    font-weight: inherit;
+}
+
+html, body {
+    height: 100%;
+}
+
+:root {
+    --accent-primary: #ec1f41;
+    --accent-primary-contrasting-color: #ffffff;
+    --transition-duration-primary: .2s;
+    --button-border-radius-primary: 8px;
+
+    font-family: system-ui, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+body > * {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+::-moz-selection {
+    background-color: var(--accent-primary);
+    color: var(--accent-primary-contrasting-color);
+}
+
+::selection {
+    background-color: var(--accent-primary);
+    color: var(--accent-primary-contrasting-color);
+}
+
+button {
+    cursor: pointer;
+}
+
+.page-header {
+    background-color: #e4e4e4;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.page-header-text {
+    font-size: 29px;
+    font-weight: 100;
+    color: #000000;
+}
+
+#page-header-add-book-btn {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: 100;
+    transition: var(--transition-duration-primary);
+}
+
+#page-header-add-book-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.3), -2px 0px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+#page-header-add-book-btn:active {
+    opacity: 0.85;
+}
