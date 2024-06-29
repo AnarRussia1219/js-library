@@ -9,15 +9,15 @@ const userPrefs = JSON.parse(localStorage.getItem("userPrefs")) || {
     // defaults
     "accent-primary": window.getComputedStyle(document.body).getPropertyValue("--accent-primary"),
 };
-console.log(userPrefs["accent-primary"])
+// console.log(userPrefs["accent-primary"])
 function saveMyLibraryToLocalStorage() {
     localStorageMyLibrary = myLibrary;
     localStorage.setItem("myLibrary", JSON.stringify(localStorageMyLibrary));
-}
+};
 
 function saveUserPrefsToLocalStorage() {
     localStorage.setItem("userPrefs", JSON.stringify(userPrefs));
-}
+};
 
 function Book(title, author, pages, read) {
     // type checking
@@ -28,7 +28,7 @@ function Book(title, author, pages, read) {
         this.read = read;
     } else {
         throw new Error("Follow the datatypes for the book object: str, str, str, bool");
-    }
+    };
 };
 Book.prototype.toggleRead = function() {
     this.read = !this.read;
