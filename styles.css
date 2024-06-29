@@ -326,11 +326,11 @@ input {
 .settings-modal-settings-block-color-picker {
     width: 70px;
     height: 30px;
-    border: none;
+    border: 2px solid black;
     border-radius: var(--button-border-radius-primary);
     cursor: pointer;
 }
 
 .settings-modal-settings-block-color-picker:hover {
-    outline: 2px solid black;
+    opacity: 0.75;
 }
