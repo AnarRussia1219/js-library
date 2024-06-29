@@ -191,3 +191,52 @@ document.getElementById("page-header-add-book-btn").addEventListener("click", fu
         formBackdrop.remove();
     });
 });
+
+document.getElementById("page-footer-settings").addEventListener("click", function() {
+    const settingsBackdrop = document.createElement("div");
+    settingsBackdrop.classList.add("backdrop-full-page");
+
+    const settingsModal = document.createElement("div");
+    settingsModal.classList.add("settings-modal");
+    settingsBackdrop.appendChild(settingsModal);
+
+    const settingsModalHeaderText = document.createElement("h3");
+    settingsModalHeaderText.classList.add("settings-modal-header-text");
+    settingsModalHeaderText.textContent = "Settings";
+    settingsModal.appendChild(settingsModalHeaderText);
+
+    /////// Appearance Section ///////
+    const settingsModalAppearanceSection = document.createElement("div");
+    settingsModalAppearanceSection.classList.add("settings-modal-settings-section");
+    settingsModal.appendChild(settingsModalAppearanceSection);
+    // appearance settings blocks
+    // accent primary
+    const settingsModalAppearanceSectionBlockAccentPrimary = document.createElement("div");
+    settingsModalAppearanceSectionBlockAccentPrimary.classList.add("settings-modal-settings-block");
+
+    const settingsModalAppearanceSectionBlockAccentPrimaryLabel = document.createElement("label");
+    settingsModalAppearanceSectionBlockAccentPrimaryLabel.classList.add("settings-modal-settings-block-label")
+    settingsModalAppearanceSectionBlockAccentPrimaryLabel.textContent = "Accent Primary:";
+    settingsModalAppearanceSectionBlockAccentPrimary.appendChild(settingsModalAppearanceSectionBlockAccentPrimaryLabel);
+
+    const settingsModalAppearanceSectionBlockAccentPrimaryColorPicker = document.createElement("input");
+    settingsModalAppearanceSectionBlockAccentPrimaryColorPicker.setAttribute("type", "color");
+    // set the default value of the color picker to be the accent primary color defined in the css
+    // console.log(window.getComputedStyle(document.body).getPropertyValue("--accent-primary"));
+    settingsModalAppearanceSectionBlockAccentPrimaryColorPicker.value = window.getComputedStyle(document.body).getPropertyValue("--accent-primary");
+    settingsModalAppearanceSectionBlockAccentPrimary.appendChild(settingsModalAppearanceSectionBlockAccentPrimaryColorPicker);
+    settingsModalAppearanceSectionBlockAccentPrimaryColorPicker.addEventListener("input", function() {
+        document.querySelector(":root").style.setProperty("--accent-primary", String(settingsModalAppearanceSectionBlockAccentPrimaryColorPicker.value));
+    });
+
+    settingsModalAppearanceSection.appendChild(settingsModalAppearanceSectionBlockAccentPrimary);
+
+
+    document.body.appendChild(settingsBackdrop);
+    // to let the user close the modal when clicked outside of the form
+    settingsBackdrop.addEventListener("click", function(event) {
+        if (event.target === settingsBackdrop) {
+            settingsBackdrop.remove();
+        };
+    });
+});

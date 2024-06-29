@@ -81,6 +81,7 @@ input {
 }
 
 #page-header-add-book-btn:hover {
+    background-color: var(--accent-primary);
     transform: scale(1.1);
     box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.3), -2px 0px 5px 0px rgba(0, 0, 0, 0.3);
 }
@@ -188,6 +189,10 @@ input {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+#page-footer-settings:active {
+    opacity: 0.85;
+}
+
 #page-footer-settings:hover svg {
     fill: var(--accent-primary);
 }
@@ -262,4 +267,38 @@ input {
 
 .add-book-form-btns-block > button:hover {
     opacity: .85;
+}
+
+.settings-modal {
+    padding: 1.25rem;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    width: 75%;
+    height: 80%;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.settings-modal-header-text {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.settings-modal-settings-section {
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+}
+
+.settings-modal-settings-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.settings-modal-settings-block-label {
+    font-size: 15px;
+    font-weight: 400;
 }
